@@ -1,6 +1,6 @@
 # Core
 
-Provides useful (core) extensions for Rails project.
+Useful extensions for Ruby on Rails projects.
 
 Core supports Rails 4.
 
