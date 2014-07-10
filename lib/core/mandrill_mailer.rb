@@ -56,7 +56,7 @@ module Core::MandrillMailer
     def mandrill_default_options(options={})
       headers['X-MC-AutoText'] ||= 1
       headers['X-MC-InlineCSS'] ||= 'true'
-      headers['X-MC-Template'] = options[:mandrill_template] || mandrill_template_for(action_name)
+      headers['X-MC-Template'] = options.delete(:mandrill_template) || mandrill_template_for(action_name)
     end
 
     def mandrill_default_merge_vars(options={})
