@@ -7,6 +7,14 @@
 # Becasue overwriting +write_attribute+ works for database backed attributes but
 # not for simple +attr_accessor+ attributes...
 
+# Furthen research makes me believe this should be removed. Main problem is that
+# when you do where.not queries the databse would not return columns with null
+# values. For example where.not(name: 'kai') would not returns columns without a
+# name (name is null). You would need to write where('name <> ? or name is null', 'kai').
+# http://www.bignerdranch.com/blog/coding-rails-with-data-integrity/
+# http://brettu.com/ruby-daily-ruby-tips-106-sensible-rails-database-migration-defaults/
+# http://stackoverflow.com/questions/13542065/is-better-use-an-empty-value-as-a-or-as-null
+
 class ActiveRecord::Base
   def write_attribute(attr_name, value)
     if value.class == FalseClass # Added because false.presence returns nil.

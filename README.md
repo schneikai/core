@@ -30,6 +30,8 @@ gem 'core'
 
 # ActionMailer Extensions
 
+## Subject via I18n
+
 ## Attach from URL
 
 ## Custom URL
