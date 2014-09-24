@@ -2,8 +2,7 @@
 # writing activerecord attributes.
 # TODO: Add tests.
 #
-# Consider
-# Maybe this should be moved to the params object?
+# Consider: Maybe this should be moved to the params object?
 # Becasue overwriting +write_attribute+ works for database backed attributes but
 # not for simple +attr_accessor+ attributes...
 
@@ -14,6 +13,8 @@
 # http://www.bignerdranch.com/blog/coding-rails-with-data-integrity/
 # http://brettu.com/ruby-daily-ruby-tips-106-sensible-rails-database-migration-defaults/
 # http://stackoverflow.com/questions/13542065/is-better-use-an-empty-value-as-a-or-as-null
+# It is also bad because it affects other Gems because it changes ARs default behavior.
+# For example in the ComfortableMexicanSofa Gem some tests where failing because of this.
 
 class ActiveRecord::Base
   def write_attribute(attr_name, value)
